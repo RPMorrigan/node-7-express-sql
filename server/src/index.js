@@ -197,9 +197,18 @@ async function addManyAnimals(animals) {
 
 app.get('/get-all-animals', async (req, res) => {
     
-    const result = await getAllAnimals();
+    try {
 
-    res.send(result);
+        const result = await getAllAnimals();
+
+        res.send(result);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+        })
+    }
 
 });
 
@@ -207,11 +216,20 @@ app.get('/get-all-animals', async (req, res) => {
 
 app.get('/get-one-animal-by-name/:name', async (req, res) => {
 
-    let name = req.params.name;
+    try {
 
-    const result = await getOneAnimalByName(name);
+        let name = req.params.name;
 
-    res.send(result);
+        const result = await getOneAnimalByName(name);
+
+        res.send(result);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+        })
+    }
 
 });
 
@@ -219,11 +237,20 @@ app.get('/get-one-animal-by-name/:name', async (req, res) => {
 
 app.get('/get-one-animal-by-id/:id', async (req, res) => {
 
-    let id = req.params.id;
+    try {
 
-    const result = await getOneAnimalById(id);
+        let id = req.params.id;
 
-    res.send(result);
+        const result = await getOneAnimalById(id);
+
+        res.send(result);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+        })
+    }
 
 });
 
@@ -231,9 +258,18 @@ app.get('/get-one-animal-by-id/:id', async (req, res) => {
 
 app.get('/get-newest-animal', async (req, res) => {
 
-    const result = await getNewestAnimal();
+    try {
+    
+        const result = await getNewestAnimal();
 
-    res.send(result);
+        res.send(result);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+        })
+    }
 
 });
 
@@ -241,9 +277,18 @@ app.get('/get-newest-animal', async (req, res) => {
 
 app.get('/get-all-mammals', async (req, res) => {
 
-    const result = await getAllMammals();
+    try {
 
-    res.send(result);
+        const result = await getAllMammals();
+
+        res.send(result);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+        })
+    }
 
 });
 
@@ -251,11 +296,20 @@ app.get('/get-all-mammals', async (req, res) => {
 
 app.get('/get-animals-by-category/:category', async (req, res) => {
 
-    let category = req.params.category;
+    try {
+        
+        let category = req.params.category;
 
-    const result = await getAnimalsByCategory(category);
+        const result = await getAnimalsByCategory(category);
 
-    res.send(result);
+        res.send(result);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+        })
+    }
 
 });
 
@@ -263,11 +317,20 @@ app.get('/get-animals-by-category/:category', async (req, res) => {
 
 app.get('/delete-one-animal/:id', async (req, res) => {
 
-    let id = req.params.id;
+    try {
 
-    const result = await deleteOneAnimal(id);
+        let id = req.params.id;
 
-    res.send(result);
+        const result = await deleteOneAnimal(id);
+
+        res.send(result);
+    
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+        })
+    }
 
 });
 
@@ -275,11 +338,20 @@ app.get('/delete-one-animal/:id', async (req, res) => {
 
 app.post('/add-one-animal', async (req, res) => {
 
-    const { name, category, can_fly, lives_in } = req.body;
+    try {
 
-    const result = await addOneAnimal(name, category, can_fly, lives_in);
+        const { name, category, can_fly, lives_in } = req.body;
 
-    res.send(result);
+        const result = await addOneAnimal(name, category, can_fly, lives_in);
+
+        res.send(result);
+    
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+        })
+    }
 
 });
 
@@ -287,11 +359,20 @@ app.post('/add-one-animal', async (req, res) => {
 
 app.post('/update-one-animal-name', async (req, res) => {
 
-    const { id, newName } = req.body;
+    try {
 
-    const result = await updateOneAnimalName(id, newName);
+        const { id, newName } = req.body;
 
-    res.send(result);
+        const result = await updateOneAnimalName(id, newName);
+
+        res.send(result);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+        })
+    }
 
 })
 
@@ -299,11 +380,20 @@ app.post('/update-one-animal-name', async (req, res) => {
 
 app.post('/update-one-animal-category', async (req, res) => {
 
-    const { id, newCategory } = req.body;
+    try {
 
-    const result = await updateOneAnimalCategory(id, newCategory);
+        const { id, newCategory } = req.body;
 
-    res.send(result);
+        const result = await updateOneAnimalCategory(id, newCategory);
+
+        res.send(result);
+
+     } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+        })
+    }
 
 })
 
@@ -311,12 +401,21 @@ app.post('/update-one-animal-category', async (req, res) => {
 
 app.post('/add-many-animals', async (req, res) => {
 
-    console.log(req.body);
+    try {
 
-    const animals = req.body.animals;
+        console.log(req.body);
 
-    const result = await addManyAnimals(animals);
+        const animals = req.body.animals;
 
-    res.send(result);
+        const result = await addManyAnimals(animals);
+
+        res.send(result);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+        })
+    }
 
 });
