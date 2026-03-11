@@ -206,7 +206,7 @@ app.get('/get-all-animals', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+            error: 'There was an issue while getting all animals. Please review your request and try again'
         })
     }
 
@@ -248,7 +248,7 @@ app.get('/get-one-animal-by-id/:id', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+            error: 'There was an issue while getting an animal by id. Please review your request and try again'
         })
     }
 
@@ -267,7 +267,7 @@ app.get('/get-newest-animal', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+            error: 'There was an issue while getting the newest animal. Please review your request and try again'
         })
     }
 
@@ -286,7 +286,7 @@ app.get('/get-all-mammals', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+            error: 'There was an issue while getting all mammals. Please review your request and try again'
         })
     }
 
@@ -307,7 +307,7 @@ app.get('/get-animals-by-category/:category', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+            error: 'There was an issue while getting animals by category. Please review your request and try again'
         })
     }
 
@@ -328,7 +328,7 @@ app.get('/delete-one-animal/:id', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+            error: 'There was an issue while deleting the animal. Please review your request and try again'
         })
     }
 
@@ -349,7 +349,7 @@ app.post('/add-one-animal', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+            error: 'There was an issue while adding an animal. Please review your request and try again'
         })
     }
 
@@ -370,7 +370,7 @@ app.post('/update-one-animal-name', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+            error: 'There was an issue while updating one animal name. Please review your request and try again'
         })
     }
 
@@ -391,7 +391,7 @@ app.post('/update-one-animal-category', async (req, res) => {
      } catch (error) {
         console.error(error);
         res.status(500).json({
-            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+            error: 'There was an issue while updating an animal category. Please review your request and try again'
         })
     }
 
@@ -414,7 +414,7 @@ app.post('/add-many-animals', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({
-            error: 'There was an issue while getting an animal by name. Please review your request and try again'
+            error: 'There was an issue while . Please review your request and try again'
         })
     }
 
