@@ -11,12 +11,13 @@
 | `animals` | GET    | /get-one-animal-by-name/:name    | Retrieves one animal by its name.           |
 | `animals` | GET    | /get-one-animal-by-id/:id        | Retrieves one animal by its id number.      |
 | `animals` | GET    | /get-newest-animal               | Retrieves the most recently added animal.   |
-| `animals` | GET    | /get-all-mammals                 | Retrieves all animals where category = 'mammal'. |
-| `animals` | GET    | /get-animals-by-category/:category | Retrieves all animals in a given category. |
+| `animals` | GET    | 🌟 /get-all-mammals                 | Retrieves all animals where category = 'mammal'. |
+| `animals` | GET    | 🌟 /get-animals-by-category/:category | Retrieves all animals in a given category. |
 | `animals` | POST   | /delete-one-animal/:id           | Deletes one animal by its id number.        |
 | `animals` | POST   | /add-one-animal                  | Adds a new animal to the database.          |
 | `animals` | POST   | /update-one-animal-name          | Updates the name of an existing animal.     |
 | `animals` | POST   | /update-one-animal-category      | Updates the category of an existing animal.|
+| `animals` | POST   | 🌟 /add-many-animals            | Adds multiple animals to the database. |
 
 ---
 
@@ -283,4 +284,27 @@ Success! The animal's name was updated!
 
 ```
 Success! The animal's category was updated!
+```
+
+### 🌟 POST `/add-many-animals`
+
+**Description:** Adds multiple animals to the database.
+
+**Example Request URL**
+`POST http://localhost:3000/add-many-animals`
+
+**Example Request Body**
+
+```json
+{
+  "animals": [
+    {"name": "penguin", "category": "bird", "can_fly": false, "lives_in": "water" },
+    {"name": "Elephant", "category": "mammal", "can_fly": "false", "lives_in": "land" }
+  ]
+}
+```
+
+**Example Response**
+```
+Success! The animals were added!
 ```

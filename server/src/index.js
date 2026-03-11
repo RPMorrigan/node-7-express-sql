@@ -29,7 +29,7 @@ app.listen(port, () => {
     async function getAllAnimals () {
 
         let animals = await db.query(
-            'SELECT * FROM animals'
+            'SELECT * FROM animals ORDER BY id ASC'
         );
 
             console.log(animals.rows);
@@ -77,7 +77,7 @@ async function getNewestAnimal() {
     
 };
 
-// 5. getAllMammals()
+// 5. 🌟 BONUS CHALLENGE — getAllMammals()
 
 async function getAllMammals() {
 
@@ -91,7 +91,7 @@ async function getAllMammals() {
 
 };
 
-// 6. getAnimalsByCategory(category)
+// 6. 🌟 BONUS CHALLENGE — getAnimalsByCategory(category)
 
 async function getAnimalsByCategory(category) {
 
@@ -109,17 +109,23 @@ async function getAnimalsByCategory(category) {
 
 async function deleteOneAnimal(id) {
 
-    const animal = await db.query(
+    const animalData = await db.query(
         `SELECT name FROM animals WHERE id = $1`, [id]
     );
 
-    const deletion = await db.query(
-        `DELETE FROM animals WHERE name = $1`, [id]
+    if (animalData.rows.length === 0) {
+        return `No animal found with id ${id}`;
+    }
+
+    const animalName = animalData.rows[0].name;
+
+    await db.query(
+        `DELETE FROM animals WHERE id = $1`, [id]
     );
 
-    console.log(`Success! ${animal} was deleted!`);
+    console.log(`Success! ${animalName} was deleted!`);
 
-    return `Success! ${animal} was deleted!`;
+    return `Success! ${animalName} was deleted!`;
 
 };
 
@@ -165,6 +171,23 @@ async function updateOneAnimalCategory(id, newCategory) {
     return `Success! The animal's category was updated!`;
 
 };
+
+// 11. 🌟 BONUS CHALLENGE — addManyAnimals(animals)
+
+async function addManyAnimals(animals) {
+
+    for (let animal of animals) {
+        await db.query(
+        `INSERT INTO animals (name, category, can_fly, lives_in)
+        VALUES ($1, $2, $3, $4)`,
+        [animal.name, animal.category, animal.can_fly, animal.lives_in]
+    );
+}
+    console.log(`Success! The animals were added!`);
+
+    return `Success! The animals were added!`;
+
+}
 
 // ---------------------------------
 // API Endpoints
@@ -283,3 +306,17 @@ app.post('/update-one-animal-category', async (req, res) => {
     res.send(result);
 
 })
+
+// 11. 🌟 POST /add-many-animals
+
+app.post('/add-many-animals', async (req, res) => {
+
+    console.log(req.body);
+
+    const animals = req.body.animals;
+
+    const result = await addManyAnimals(animals);
+
+    res.send(result);
+
+});
