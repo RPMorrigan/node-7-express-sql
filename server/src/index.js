@@ -315,7 +315,7 @@ app.get('/get-animals-by-category/:category', async (req, res) => {
 
 // 7. POST /delete-one-animal/:id
 
-app.get('/delete-one-animal/:id', async (req, res) => {
+app.post('/delete-one-animal/:id', async (req, res) => {
 
     try {
 

@@ -27,19 +27,25 @@ function App() {
     setAnimals(data);
   };
 
+
+  // We're using this function for the delete button in the HTML.
   const deleteOneAnimal = async (id) => {
     try {
-      await fetch(`/api/delete-one-animal/${id}`, {
+      // We feed the fetch the endpoint in a literal with a dynamic id.
+      const response = await fetch(`/api/delete-one-animal/${id}`, {
+        // Because the helper function in the API is a POST request.
         method: "POST",
+        // Headers are metadata a packet is sent with to tell the recipient how to handle the data.
         headers: {
           "Content-Type": "application/json",
         },
       });
+      // Simple catch error handling
     } catch (error) {
       console.error(`Error: ${error}`);
     }
 
-    // fetch all animals data again
+    // Refreshes the list on the webpage
     getAllAnimals();
   };
 
