@@ -11,6 +11,7 @@
   "type": "module",
   "dependencies": {
     "express": "^5.2.1",
+    "gp": "^0.0.1",
     "pg": "^8.20.0"
   }
 }
