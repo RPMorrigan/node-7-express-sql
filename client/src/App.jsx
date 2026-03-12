@@ -27,19 +27,18 @@ function App() {
     setAnimals(data);
   };
 
-  // Deletes a single animal
   const deleteOneAnimal = async (id) => {
     try {
-      await fetch(`api/delete-one-animal/${id}`, {
-        method: 'POST',
+      await fetch(`/api/delete-one-animal/${id}`, {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
       });
     } catch (error) {
-      console.error(`Error: ${error}`)
+      console.error(`Error: ${error}`);
     }
-    
+
     // fetch all animals data again
     getAllAnimals();
   };
